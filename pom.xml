@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ca.uhn.hapi.fhir</groupId>
+		<artifactId>hapi-deployable-pom</artifactId>
+		<version>4.1.0</version>
+	</parent>
+
+	<groupId>org.hl7.fhir.importers</groupId>
+	<artifactId>mimic-importer</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<url>https://github.com/fhir/mimic-importer</url>
+	<name>Mimic Dataset - FHIR Importer</name>
+
+	<properties>
+		<fhir_core_version>4.1.7-SNAPSHOT</fhir_core_version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>org.hl7.fhir.dstu2</artifactId>
+			<version>${fhir_core_version}</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>org.hl7.fhir.dstu3</artifactId>
+			<version>${fhir_core_version}</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>org.hl7.fhir.r4</artifactId>
+			<version>${fhir_core_version}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.fhir</groupId>
+			<artifactId>ucum</artifactId>
+			<optional>true</optional>
+			<version>1.0.2</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.basepom.maven</groupId>
+				<artifactId>duplicate-finder-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
